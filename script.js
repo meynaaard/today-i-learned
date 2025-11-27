@@ -27,3 +27,16 @@ console.log("Upvotes:", totalUpvotes);
 let votesFalse = 40;
 const isCorrect = votesFalse === totalUpvotes;
 console.log(isCorrect);
+
+console.log(parseInt("24.533ccc"));
+
+function calculateFactAge(year) {
+  const currentYear = new Date().getFullYear();
+  const age = currentYear - year;
+  return age;
+}
+const age1 = calculateFactAge(2015);
+console.log(age1);
+
+console.log(calculateFactAge(2020));
+console.log(calculateFactAge(1990));
