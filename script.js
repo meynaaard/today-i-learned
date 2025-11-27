@@ -12,3 +12,18 @@ btn.addEventListener("click", function () {
     btn.textContent = "Share a fact";
   }
 });
+
+let votesInteresting = 23;
+let votesMindBlowing = 5;
+const text = "Lisbon is a capital of Portugal";
+
+votesInteresting = votesInteresting + 1;
+votesInteresting++;
+console.log(votesInteresting);
+
+let totalUpvotes = votesInteresting + votesMindBlowing;
+console.log("Upvotes:", totalUpvotes);
+
+let votesFalse = 40;
+const isCorrect = votesFalse === totalUpvotes;
+console.log(isCorrect);
