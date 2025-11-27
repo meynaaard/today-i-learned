@@ -37,12 +37,17 @@ function calculateFactAge(year) {
 }
 const age1 = calculateFactAge(2015);
 console.log(age1);
-
 console.log(calculateFactAge(2020));
-console.log(calculateFactAge(1990));
 console.log(calculateFactAge(2037));
 
-let votesInteresting = 20;
+const calculateFactAge2 = (year) =>
+  year <= new Date().getFullYear()
+    ? new Date().getFullYear() - year
+    : `Impossible year. Year needs to be less or equal ${new Date().getFullYear()}`;
+console.log(calculateFactAge2(2015));
+console.log(calculateFactAge2(2037));
+
+/* let votesInteresting = 20;
 let votesMindBlowing = 5;
 
 if (votesInteresting === votesMindBlowing) {
@@ -79,4 +84,4 @@ const str = `The current fact is "${text}". It is ${calculateFactAge(
 )} years old. It is probably ${
   totalUpvotes > votesFalse ? "correct" : "not true"
 }`;
-console.log(str);
+console.log(str); */
