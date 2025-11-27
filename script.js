@@ -86,6 +86,7 @@ const str = `The current fact is "${text}". It is ${calculateFactAge(
 }`;
 console.log(str); */
 
+// Array
 const fact = ["Lisbon is the capital of Portugal", 2015, true];
 console.log(fact);
 console.log(fact[0]);
@@ -98,3 +99,24 @@ console.log(createdIn);
 // creating new array with spread operator
 const newFact = [...fact, "society"];
 console.log(newFact);
+
+// Object
+const factObj = {
+  text: "Lisbon is the capital of Portugal",
+  category: "society",
+  createdIn: 2015,
+  isCorrect: true,
+  createSummary: function () {
+    return `The fact "${
+      this.text
+    }" is from the category ${this.category.toUpperCase()}`;
+  },
+};
+
+console.log(factObj.text);
+console.log(factObj["text"]);
+
+const { category, isCorrect } = factObj;
+console.log(category);
+console.log(isCorrect);
+console.log(factObj.createSummary());
