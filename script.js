@@ -50,7 +50,25 @@ const factsList = document.querySelector(".facts-list");
 
 // Create DOM elements: Render facts in list
 factsList.innerHTML = "";
-createFactsList(initialFacts);
+
+loadFacts();
+
+// Load data from Supabase
+async function loadFacts() {
+  // Constant API variables
+  const BASE_URL = "https://pkbjkvovgkqebxwmbjwb.supabase.co/rest/v1/facts";
+  const API_KEY =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBrYmprdm92Z2txZWJ4d21iandiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQxODA3MjQsImV4cCI6MjA3OTc1NjcyNH0.2ZTkIcaw-lLQepttUvqleom_V8PZ_R1amcxzbsJoG0s";
+
+  const response = await fetch(BASE_URL, {
+    headers: {
+      apikey: API_KEY,
+      authorization: `Bearer ${API_KEY}`,
+    },
+  });
+  const data = await response.json();
+  createFactsList(data);
+}
 
 function createFactsList(dataArray) {
   // factsList.insertAdjacentHTML("afterbegin", "<li>Meynard</li>");
@@ -61,8 +79,10 @@ function createFactsList(dataArray) {
 
     return `
     <li class="fact">
-      <p>${fact.text}</p>
-      <a class="source" href="${fact.source}" target="_blank">(Source)</a>
+      <p>
+        ${fact.text}
+        <a class="source" href="${fact.source}" target="_blank">(Source)</a>
+      </p>
       <span class="tag" style="background-color: ${color}">
         ${fact.category}
       </span>
